@@ -138,6 +138,16 @@ li > button:hover {
   text-align: center;
 }
 
+.itemsJuegos > button {
+  width: 25%;
+  justify-self: center;
+}
+
+.itemsJuegos > button > a {
+  text-decoration: none;
+  color: black;
+}
+
 .itemDetails {
   width: 100%;
   display: flex;

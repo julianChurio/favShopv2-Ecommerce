@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Item = ({ info }) => {
   return (
     <div className="itemsJuegos">
-      <h1 style={{textAlign: "center"}}>{info.nombre}</h1>
+      <h1 style={{ textAlign: "center" }}>{info.nombre}</h1>
       <img src={info.photo} alt="" />
-      <Link to={`/categoria/productos/detalles/${info.id}`}>
-        <button>Ver Info</button>
-      </Link>
+      <button>
+        <Link to={`/categoria/productos/detalles/${info.id}`}>Ver Info</Link>
+      </button>
     </div>
   );
 };
