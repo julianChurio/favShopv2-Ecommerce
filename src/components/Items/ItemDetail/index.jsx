@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount";
 
-const onAdd = (quantity) => {
-  console.log("compraste: ", quantity);
-};
-
 const ItemDetail = ({ data }) => {
+  const [terminarCompra, setTerminarCompra] = useState(false);
+  const comprar = (quantity) => {
+    setTerminarCompra(true);
+  };
   return (
     <div>
       <div className="detail">
@@ -13,7 +14,18 @@ const ItemDetail = ({ data }) => {
         <img src={data.photo} alt="" />
         <h3>Precio : {data.precio}</h3>
         <p>{data.descripcion}</p>
-        <ItemCount initial={0} stock={5} onAdd={onAdd} />
+        {terminarCompra ? (
+          <div>
+            <Link to="/cart/">
+              <button>Terminar compra</button>
+            </Link>
+            <Link to="/catalogo/">
+              <button>Seguir comprando</button>
+            </Link>
+          </div>
+        ) : (
+          <ItemCount initial={0} stock={5} onAdd={comprar} />
+        )}
       </div>
     </div>
   );
