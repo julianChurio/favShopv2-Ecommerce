@@ -7,20 +7,23 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import ItemDetailContainer from "./components/Items/ItemDetailContainer/index";
 import Favoritos from "./Pages/Favoritos";
+import CartProvider from "./CartProvider";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/catalogo/" element={<ItemListContainer />} />
-          <Route path="/cart/" element={<Cart />} />
-          <Route path="/categoria/productos/:itemId" />
-          <Route path="/categoria/productos/detalles/:detalleId" element={<ItemDetailContainer />} />
-          <Route path="/categoria/:favoritos" element={<Favoritos />} />
-        </Routes>
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/catalogo/" element={<ItemListContainer />} />
+            <Route path="/cart/" element={<Cart />} />
+            <Route path="/categoria/productos/:itemId" />
+            <Route path="/categoria/productos/detalles/:detalleId" element={<ItemDetailContainer />} />
+            <Route path="/categoria/:favoritos" element={<Favoritos />} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

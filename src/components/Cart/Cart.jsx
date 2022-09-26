@@ -1,9 +1,14 @@
-import React from 'react'
+import { useCartContext } from "../../CartProvider";
 
 const Cart = () => {
-  return (
-    <div>Cart</div>
-  )
-}
+  const { cantidadEnCarrito } = useCartContext();
 
-export default Cart
+  const itemsInCart = cantidadEnCarrito();
+  return (
+    <div>
+      <h1 style={{fontSize: "8rem"}}>{itemsInCart}</h1>
+    </div>
+  )
+};
+
+export default Cart;

@@ -6,7 +6,9 @@ const Favoritos = () => {
   const { favoritos } = useParams();
 
   useEffect(() => {
-    setFavorito(juegos.filter((product) => product.favorito === favoritos));
+    setTimeout(() => {
+      setFavorito(juegos.filter((product) => product.favorito === favoritos));
+    }, 1000);
   }, [favoritos]);
 
   const [favorito, setFavorito] = useState([]);

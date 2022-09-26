@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount";
+import { useCartContext } from "../../../CartProvider";
 
 const ItemDetail = ({ data }) => {
+  const { agregarProducto } = useCartContext();
+
   const [terminarCompra, setTerminarCompra] = useState(false);
-  const comprar = () => {
+
+  const comprar = (cantidad) => {
     setTerminarCompra(true);
+    agregarProducto(data, cantidad);
   };
+
   return (
     <div className="detail">
       <h1>{data.nombre}</h1>
