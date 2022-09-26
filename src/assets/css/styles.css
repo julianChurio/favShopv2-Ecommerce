@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navBar {
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navPrincipal > a:nth-child(1) {
+  display: flex;
+}
+
+.navPrincipal > a:nth-child(4) {
+  display: flex;
+}
+
+.flask {
+  width: 40px;
+  align-self: center;
+  height: 40px;
+}
+
+.items {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  margin-right: 10px;
+}
+
+li  > button {
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: white;
+}
+
+li > button:hover {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.cartWidget {
+  width: 40px;
+  cursor: pointer; /* esto despues se lo saco */
+  height: 40px;
+  align-self: center;
+}
+
+.navPrincipal {
+  display: flex;
+  background-color: orange;
+}
+
+.mainBody {
+  text-align: center;
+}
+.juegos {
+  display: flex;
+  flex-flow: wrap;
+}
+
+/* .buttons {
+  display: flex;
+  justify-content: center;
+} */
+.buttons > button {
+  margin: 0 auto;
+  align-self: center;
+  border: none;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.buttons > button:first-child {
+  background-color: hsla(0, 100%, 50%, 1) !important;
+}
+.buttons > button:first-child:disabled {
+  background-color: hsla(0, 100%, 50%, 0.5) !important;
+}
+
+.buttons > button:last-child {
+  background-color: hsla(85, 67%, 39%, 1);
+}
+.buttons > button:last-child:disabled {
+  background-color: hsla(85, 67%, 39%, 0.5) !important;
+}
+
+.itemCount > .buttons > p {
+  align-self: center;
+  margin: 0;
+}
+
+.itemCount > h3 {
+  display: flex;
+  justify-content: center;
+}
+
+/* .itemCount {
+  width: 25%;
+  margin: 0 auto;
+} */
+
+.itemList {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.itemsJuegos {
+  width: 25%;
+  border: 1px solid black;
+  display: grid;
+}
+
+.itemsJuegos > h3 {
+  text-align: center;
+}
+
+.itemsJuegos > img {
+  margin: 0 auto;
+}
+
+.itemsJuegos > h4 {
+  text-align: center;
+}
+
+.itemDetails {
+  width: 100%;
+  display: flex;
+}
+
+.detailList {
+  width: 25%;
+}
+
+.detailList > h4, .detailList > h4 > p {
+  text-align: center;
+}
+
+.detailList p {
+  margin: 0 auto;
+}
+
+.resetComprar {
+  display: flex;
+}
+
+.reset {
+  margin-right: auto;
+  border: none;
+  padding: .75rem;
+  background-color: slateblue;
+  color: white;
+}
