@@ -4,7 +4,7 @@ import ItemCount from "../ItemCount";
 
 const ItemDetail = ({ data }) => {
   const [terminarCompra, setTerminarCompra] = useState(false);
-  const comprar = (quantity) => {
+  const comprar = () => {
     setTerminarCompra(true);
   };
   return (
