@@ -140,11 +140,16 @@ li > button:hover {
 
 .itemsJuegos > button {
   width: 25%;
+  border: none ;
+  padding: .25rem;
+  background-color: lightgray;
   justify-self: center;
 }
 
 .itemsJuegos > button > a {
   text-decoration: none;
+  width: 100%;
+  display: block;
   color: black;
 }
 

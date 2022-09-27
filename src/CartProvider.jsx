@@ -12,6 +12,10 @@ const CartProvider = ({ children }) => {
     setCart([...newCart, { ...item, cantidad: cantidad + nuevaCantidad }]);
   };
 
+  const precioTotal = cart.reduce((a, b) => a + b.cantidad * b.precio, 0);
+
+  const totalProductos = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
+
   const cantidadEnCarrito = () => cart.reduce((cantidadTotal, prod) => cantidadTotal + prod.cantidad, 0);
 
   const limpiarCarrito = () => setCart([]);
@@ -28,6 +32,9 @@ const CartProvider = ({ children }) => {
         removerProducto,
         agregarProducto,
         cantidadEnCarrito,
+        precioTotal,
+        totalProductos,
+        cart
       }}
     >
       {children}

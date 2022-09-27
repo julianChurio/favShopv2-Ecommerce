@@ -17,7 +17,7 @@ const ItemDetail = ({ data }) => {
     <div className="detail">
       <h1>{data.nombre}</h1>
       <img src={data.photo} alt="" />
-      <h3>Precio : {data.precio}</h3>
+      <h3>Precio : AR${data.precio}</h3>
       <p>{data.descripcion}</p>
       {terminarCompra ? (
         <div>
