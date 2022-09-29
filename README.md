@@ -13,7 +13,11 @@ Inclui lo que por ahora son mis juegos favoritos, cada uno tiene una id y una pe
 ### To-do
 
 TERMINARLO
+
 Dejarlo lindo
+
 Incluir alguna que otra funcionalidad ajena a la tematica solo para practicar
+
 Comentar mas así se sabe lo que pasa en cada componente
+
 Generalmente limpiar un poquito el codigo
