@@ -126,6 +126,11 @@ li > button:hover {
   display: grid;
 }
 
+.itemsJuegos h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
 .itemsJuegos > h3 {
   text-align: center;
 }

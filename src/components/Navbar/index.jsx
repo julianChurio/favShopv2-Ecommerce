@@ -20,7 +20,7 @@ function NavBar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/categoria/favoritos">
+              <NavLink to="/categoria/favorito">
                 <button>Favoritos</button>
               </NavLink>
             </li>
