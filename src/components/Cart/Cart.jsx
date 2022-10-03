@@ -1,11 +1,14 @@
 import { useCartContext } from "../../CartProvider";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
-import { addDoc, getFirestore } from 'firebase/firestore';
-import { collection } from 'firebase/firestore';
+import { addDoc, getFirestore } from "firebase/firestore";
+import { collection } from "firebase/firestore";
+import { useState } from "react";
 
 const Cart = () => {
   const { cart, precioTotal } = useCartContext();
+
+  const [orden, setOrden] = useState();
 
   const ordenDeCompra = {
     comprador: {
@@ -25,13 +28,10 @@ const Cart = () => {
   };
 
   const mandarCompra = () => {
-    const traerFirestore = getFirestore()
-    const collecionDeOrdenes = collection(traerFirestore, 'ordenes')
-    addDoc(collecionDeOrdenes, ordenDeCompra)
-    .then(({id}) => console.log(id))
-  }
-
-
+    const traerFirestore = getFirestore();
+    const collecionDeOrdenes = collection(traerFirestore, "ordenes");
+    addDoc(collecionDeOrdenes, ordenDeCompra).then(({ id }) => setOrden(id));
+  };
 
   if (cart.length === 0) {
     return (
@@ -72,7 +72,8 @@ const Cart = () => {
         ))}
       </table>
       <p>Precio total: AR${precioTotal}</p>
-      <button onClick={mandarCompra()}>Finalizar Compra</button>
+      <button onClick={mandarCompra}>Finalizar Compra</button>
+      <h3>Su orden de compra: {orden}</h3>
     </div>
   );
 };
