@@ -39,7 +39,7 @@ li {
   margin-right: 10px;
 }
 
-li  > button {
+li > button {
   padding: 5px;
   border: 0;
   border-radius: 5px;
@@ -145,8 +145,8 @@ li > button:hover {
 
 .itemsJuegos > button {
   width: 25%;
-  border: none ;
-  padding: .25rem;
+  border: none;
+  padding: 0.25rem;
   background-color: lightgray;
   justify-self: center;
 }
@@ -167,7 +167,8 @@ li > button:hover {
   width: 25%;
 }
 
-.detailList > h4, .detailList > h4 > p {
+.detailList > h4,
+.detailList > h4 > p {
   text-align: center;
 }
 
@@ -182,7 +183,31 @@ li > button:hover {
 .reset {
   margin-right: auto;
   border: none;
-  padding: .75rem;
+  padding: 0.75rem;
   background-color: slateblue;
   color: white;
+}
+
+.cartSpan {
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 16px;
+  height: 20px;
+  line-height: 16px;
+  text-align: center;
+}
+.cartWidget {
+  z-index: 1;
+  position: relative;
+  left: -8px;
+}
+
+.none {
+  display: none;
 }
