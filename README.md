@@ -21,3 +21,4 @@ Incluir alguna que otra funcionalidad ajena a la tematica solo para practicar
 Comentar mas así se sabe lo que pasa en cada componente
 
 Generalmente limpiar un poquito el codigo
+### WIP
