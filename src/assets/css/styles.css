@@ -18,6 +18,10 @@
   display: flex;
 }
 
+.tituloPrincipal {
+  color: orange;
+}
+
 .flask {
   width: 40px;
   align-self: center;
@@ -59,7 +63,7 @@ li > button:hover {
 
 .navPrincipal {
   display: flex;
-  background-color: orange;
+  background-image: linear-gradient(to right, black 85%, orange);
 }
 
 .mainBody {
@@ -70,10 +74,6 @@ li > button:hover {
   flex-flow: wrap;
 }
 
-/* .buttons {
-  display: flex;
-  justify-content: center;
-} */
 .buttons > button {
   margin: 0 auto;
   align-self: center;
@@ -109,11 +109,6 @@ li > button:hover {
   display: flex;
   justify-content: center;
 }
-
-/* .itemCount {
-  width: 25%;
-  margin: 0 auto;
-} */
 
 .itemList {
   display: flex;

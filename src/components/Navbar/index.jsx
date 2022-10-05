@@ -9,7 +9,7 @@ function NavBar() {
         <NavLink to="/">
           <img src={Flask} className="flask" alt="asddas" />
         </NavLink>
-        <div>
+        <div className="tituloPrincipal">
           <h1>favShop</h1>
         </div>
         <div className="items">
