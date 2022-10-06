@@ -6,7 +6,7 @@ import { collection } from "firebase/firestore";
 import { useState } from "react";
 
 const Cart = () => {
-  const { cart, precioTotal } = useCartContext();
+  const { cart, precioTotal, precioImpuesto } = useCartContext();
 
   const [orden, setOrden] = useState();
 
@@ -35,7 +35,7 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="cart">
+      <div className="cartContainer cart-page">
         <h1>No hay elementos en el carrito</h1>
         <Link to="/catalogo/">
           <button>Hacer compras</button>
@@ -45,37 +45,46 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
+    <div className="cartContainer cart-page">
       <table>
-        <tbody className="tableRow">
-          <th>
-            <p className="tableHeader">Eliminar</p>
-          </th>
-          <th>
-            <p className="tableHeader">Imagen</p>
-          </th>
-          <th>
-            <p className="tableHeader">Nombre</p>
-          </th>
-          <th>
-            <p className="tableHeader">Cantidad</p>
-          </th>
-          <th>
-            <p className="tableHeader">Precio por unidad</p>
-          </th>
-          <th>
-            <p className="tableHeader">Subtotal</p>
-          </th>
-        </tbody>
+        <tr className="tableHeader">
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+        </tr>
+        {/* aca iria el cart map */}
         {cart.map((product) => (
           <CartItem key={product.id} product={product} />
         ))}
       </table>
-      <p>Precio total: AR${precioTotal}</p>
-      <button onClick={mandarCompra}>Finalizar Compra</button>
-      <h3>Su orden de compra: {orden}</h3>
+      <div className="total-price">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td>AR${precioTotal}</td>
+          </tr>
+          <tr>
+            <td>Impuestos</td>
+            <td>AR${[(Math.round(precioImpuesto * 100) / 100).toFixed(2)]}</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>AR${[(Math.round((precioTotal + precioImpuesto) * 100) / 100).toFixed(2)]}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   );
 };
 
 export default Cart;
+
+/* 
+      <p>Precio total: AR${precioTotal}</p>
+      <button onClick={mandarCompra}>Finalizar Compra</button>
+      <h3>Su orden de compra: {orden}</h3>
+        {cart.map((product) => (
+          <CartItem key={product.id} product={product} />
+        ))}
+
+*/

@@ -14,6 +14,7 @@ const CartProvider = ({ children }) => {
 
   const precioTotal = cart.reduce((a, b) => a + b.cantidad * b.precio, 0);
 
+  const precioImpuesto = precioTotal * 0.75;
   const totalProductos = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
 
   const totalNumero = cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
@@ -38,6 +39,7 @@ const CartProvider = ({ children }) => {
         totalProductos,
         cart,
         totalNumero,
+        precioImpuesto,
       }}
     >
       {children}
