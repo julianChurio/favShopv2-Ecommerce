@@ -4,6 +4,7 @@ import CartItem from "./CartItem";
 import { addDoc, getFirestore } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { useState } from "react";
+import Popup from "../Modal";
 
 const Cart = () => {
   const { cart, precioTotal, precioImpuesto } = useCartContext();
@@ -73,6 +74,7 @@ const Cart = () => {
           </tr>
         </table>
       </div>
+      <Popup />
     </div>
   );
 };

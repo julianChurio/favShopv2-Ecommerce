@@ -1,9 +1,6 @@
 .cartContainer {
-  min-height: 100vh;
-  background-image: linear-gradient(to bottom right, black 75%, orange);
-  color: white;
+  height: 100vh;
 }
-
 
 table {
   width: 100%;
@@ -72,5 +69,9 @@ td {
 
 .tableHeader {
   font-size: 1.5rem;
-  background-image: linear-gradient(to right, black 85%, orange);
+}
+
+.terminar-compra {
+  display: flex;
+  justify-content: center;
 }

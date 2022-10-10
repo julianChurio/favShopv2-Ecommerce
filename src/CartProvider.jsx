@@ -23,7 +23,9 @@ const CartProvider = ({ children }) => {
 
   const limpiarCarrito = () => setCart([]);
 
-  const buscarEnCarrito = (id) => (cart.find((product) => product.id === id) ? true : false);
+  const buscarEnCarrito = (id) => cart.find((product) => product.id === id ? console.log(product.cantidad) : false);
+
+  buscarEnCarrito(1145360)
 
   const removerProducto = (id) => setCart(cart.filter((product) => product.id !== id));
 
