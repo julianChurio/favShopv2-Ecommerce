@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useCartContext } from "./../../../CartProvider";
 
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ initial, stock, onAdd, id }) => {
   const [count, setCount] = useState(parseInt(initial));
 
+  const { buscarEnCarrito } = useCartContext();
+
   const sumar = () => {
-    setCount(count + 1);
+    if (buscarEnCarrito(id).cantidad < stock) {
+      setCount(count + 1);
+    } else {
+      console.log("noasd");
+    }
   };
 
   const restar = () => {

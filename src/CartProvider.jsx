@@ -3,7 +3,7 @@ const CartContext = React.createContext([]);
 
 export const useCartContext = () => useContext(CartContext);
 
-const CartProvider = ({ children }) => {
+const CartProvider = ({ children, id }) => {
   const [cart, setCart] = useState([]);
 
   const agregarProducto = (item, nuevaCantidad) => {
@@ -11,6 +11,19 @@ const CartProvider = ({ children }) => {
     const newCart = cart.filter((prod) => prod.id !== item.id);
     setCart([...newCart, { ...item, cantidad: cantidad + nuevaCantidad }]);
   };
+
+  /* 
+  
+      if (buscarEnCarrito(item.id)) {
+			const itemInCart = cart.find((it) => it.id === item.id);
+			itemInCart.nuevaCantidad = itemInCart.nuevaCantidad + nuevaCantidad;
+			setCart([...cart]);
+		} else {
+			item.nuevaCantidad = nuevaCantidad;
+			setCart([...cart, item]);
+		}
+  
+  */
 
   const precioTotal = cart.reduce((a, b) => a + b.cantidad * b.precio, 0);
 
@@ -23,11 +36,7 @@ const CartProvider = ({ children }) => {
 
   const limpiarCarrito = () => setCart([]);
 
-  const buscarEnCarrito = (id) => cart.find((product) => product.id === id ? console.log(product.cantidad) : false);
-
-  if(buscarEnCarrito(1145360) >= 2) {
-    console.log('hola')
-  }
+  const buscarEnCarrito = (id) => cart.find((product) => product.id === id);
 
   const removerProducto = (id) => setCart(cart.filter((product) => product.id !== id));
 

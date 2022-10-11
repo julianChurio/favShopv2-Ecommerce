@@ -29,7 +29,7 @@ const ItemDetail = ({ data }) => {
           </Link>
         </div>
       ) : (
-        <ItemCount initial={0} stock={5} onAdd={comprar} />
+        <ItemCount initial={0} stock={5} onAdd={comprar} id={data.id}/>
       )}
     </div>
   );
