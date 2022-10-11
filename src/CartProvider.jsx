@@ -25,7 +25,9 @@ const CartProvider = ({ children }) => {
 
   const buscarEnCarrito = (id) => cart.find((product) => product.id === id ? console.log(product.cantidad) : false);
 
-  buscarEnCarrito(1145360)
+  if(buscarEnCarrito(1145360) >= 2) {
+    console.log('hola')
+  }
 
   const removerProducto = (id) => setCart(cart.filter((product) => product.id !== id));
 
