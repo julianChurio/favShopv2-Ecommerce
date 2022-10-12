@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const Favoritos = () => {
   const { favorito } = useParams();
@@ -22,8 +23,10 @@ const Favoritos = () => {
         <div key={i} className="itemsJuegos">
           <h1>{favoritos.nombre}</h1>
           <img src={favoritos.photo} alt="" />
-          <h3>{favoritos.precio}</h3>
-          <h4>{favoritos.descripcion}</h4>
+          <h3>AR${favoritos.precio}</h3>
+          <button>
+            <Link to={`/categoria/productos/detalles/${favoritos.id}`}>Ver Info</Link>
+          </button>
         </div>
       ))}
     </div>

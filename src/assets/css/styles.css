@@ -1,12 +1,12 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #24252a;
-  color: white;
 }
 
 body {
   padding: 0 !important;
+  background-color: #24252a;
+  color: white;
 }
 
 .navBar {
@@ -24,8 +24,10 @@ body {
   display: flex;
 }
 
-.tituloPrincipal {
-  color: orange;
+.tituloPrincipal > h1 {
+  background: linear-gradient(to right, white, orange);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .flask {
@@ -44,7 +46,7 @@ body {
   padding: 0.4rem;
   border: none;
   color: white;
-  background-image: linear-gradient(135deg, #0088a9 50%, transparent 50%);
+  background-image: linear-gradient(135deg, #0088a9 50%, #24252a 50%);
   background-size: 250%;
   background-position: 100% 100%;
   transition: background 0.4s;
@@ -67,7 +69,7 @@ li {
   height: 40px;
   align-self: center;
   padding: 0.4rem;
-  background-image: linear-gradient(135deg, #0088a9 50%, transparent 50%);
+  background-image: linear-gradient(135deg, #0088a9 50%, #24252a 50%);
   background-size: 300%;
   background-position: 100%;
   transition: background 0.4s;
@@ -84,13 +86,23 @@ li {
 .mainBody {
   text-align: center;
 }
+
 .juegos {
   display: flex;
   flex-flow: wrap;
 }
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.buttons > span {
+  align-self: center;
+}
 
 .buttons > button {
-  margin: 0 auto;
+  margin: 0;
   align-self: center;
   border: none;
   color: white;
@@ -115,7 +127,6 @@ li {
   background-color: hsla(85, 67%, 39%, 0.5) !important;
 }
 
-
 .itemCount > .buttons > p {
   align-self: center;
   margin: 0;
@@ -132,7 +143,7 @@ li {
 }
 
 .itemsJuegos {
-  width: 25%;
+  min-width: 25%;
   border: 1px solid black;
   display: grid;
 }
@@ -159,7 +170,7 @@ li {
   border: none;
   padding: 0.25rem;
   justify-self: center;
-  background-image: linear-gradient(135deg, #0088a9 50%, transparent 50%);
+  background-image: linear-gradient(135deg, #0088a9 50%, #24252a 50%);
   background-size: 250%;
   background-position: 100% 100%;
   transition: background 0.4s;
@@ -228,4 +239,49 @@ li {
 
 .none {
   display: none;
+}
+
+.detail {
+  display: flex;
+  gap: 1rem;
+}
+
+.details {
+  width: 50%;
+}
+
+.detailPhoto {
+  width: 50%;
+}
+
+.total-price > button {
+  background-color: #0088a9;
+  padding: 1.5rem;
+  margin: auto auto;
+}
+
+.modal-content {
+  background-color: #24252a;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modal-body > input {
+  padding: 0.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  appearance: textfield;
 }

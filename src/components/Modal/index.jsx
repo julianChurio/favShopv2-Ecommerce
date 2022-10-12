@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 function Popup() {
   const [show, setShow] = useState(false);
@@ -10,15 +10,19 @@ function Popup() {
 
   return (
     <>
-      <Button variant="transparent" onClick={handleShow}>
-        Terminar compra
-      </Button>
+      <Button onClick={handleShow}>Terminar compra</Button>
 
       <Modal centered show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Ingresar datos</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <div className="modal-body">
+            <input type="text" placeholder="Nombre" />
+            <input type="email" placeholder="Email" />
+            <input type="number" placeholder="Numero de telefono"/>
+          </div>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar

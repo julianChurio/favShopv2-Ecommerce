@@ -16,7 +16,6 @@ const Cart = () => {
       nombre: "Juli",
       email: "julichurio282@gmail.com",
       telefono: "2234976683",
-      direccion: "asdasdas",
     },
     items: cart.map((product) => ({
       id: product.id,
@@ -48,45 +47,39 @@ const Cart = () => {
   return (
     <div className="cartContainer cart-page">
       <table>
-        <tr className="tableHeader">
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Subtotal</th>
-        </tr>
-        {/* aca iria el cart map */}
-        {cart.map((product) => (
-          <CartItem key={product.id} product={product} />
-        ))}
+        <tbody>
+          <tr className="tableHeader">
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+          {cart.map((product) => (
+            <CartItem key={product.id} product={product} />
+          ))}
+        </tbody>
       </table>
+
       <div className="total-price">
+        <Popup />
         <table>
-          <tr>
-            <td>Subtotal</td>
-            <td>AR${precioTotal}</td>
-          </tr>
-          <tr>
-            <td>Impuestos</td>
-            <td>AR${[(Math.round(precioImpuesto * 100) / 100).toFixed(2)]}</td>
-          </tr>
-          <tr>
-            <td>Total</td>
-            <td>AR${[(Math.round((precioTotal + precioImpuesto) * 100) / 100).toFixed(2)]}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Subtotal</td>
+              <td>AR${precioTotal}</td>
+            </tr>
+            <tr>
+              <td>Impuestos</td>
+              <td>AR${[(Math.round(precioImpuesto * 100) / 100).toFixed(2)]}</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>AR${[(Math.round((precioTotal + precioImpuesto) * 100) / 100).toFixed(2)]}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
-      <Popup />
     </div>
   );
 };
 
 export default Cart;
-
-/* 
-      <p>Precio total: AR${precioTotal}</p>
-      <button onClick={mandarCompra}>Finalizar Compra</button>
-      <h3>Su orden de compra: {orden}</h3>
-        {cart.map((product) => (
-          <CartItem key={product.id} product={product} />
-        ))}
-
-*/

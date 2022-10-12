@@ -7,11 +7,11 @@ const ItemCount = ({ initial, stock, onAdd, id }) => {
   const { buscarEnCarrito } = useCartContext();
 
   const sumar = () => {
-    if (buscarEnCarrito(id).cantidad < stock) {
-      setCount(count + 1);
-    } else {
-      console.log("noasd");
-    }
+    let cantidadEnCarrito;
+
+    buscarEnCarrito(id) !== undefined ? (cantidadEnCarrito = buscarEnCarrito(id).cantidad) : (cantidadEnCarrito = 0);
+
+    count >= 0 && count < stock && count + cantidadEnCarrito < stock ? setCount(count + 1) : console.log("asd");
   };
 
   const restar = () => {
@@ -25,7 +25,7 @@ const ItemCount = ({ initial, stock, onAdd, id }) => {
   return (
     <div className="itemCount">
       <div className="buttons">
-        <button disabled={count <= 0} onClick={restar}>
+        <button disabled={count === 0} onClick={restar}>
           -
         </button>
         <span>{count}</span>
