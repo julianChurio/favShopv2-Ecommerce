@@ -11,11 +11,21 @@ const Cart = () => {
 
   const [orden, setOrden] = useState();
 
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [number, setNumber] = useState();
+
+  const getValuesFromModal = (nameInput, emailInput, numberInput) => {
+    setName(nameInput);
+    setEmail(emailInput);
+    setNumber(numberInput);
+  };
+
   const ordenDeCompra = {
     comprador: {
-      nombre: "nombre",
-      email: "email",
-      numero: "numero",
+      nombre: name,
+      email: email,
+      numero: number,
     },
     items: cart.map((product) => ({
       id: product.id,
@@ -60,7 +70,7 @@ const Cart = () => {
       </table>
 
       <div className="total-price">
-        <Popup funcion={mandarCompra} />
+        <Popup getValuesFromModal={getValuesFromModal} funcion={mandarCompra} />
         <table>
           <tbody>
             <tr>
