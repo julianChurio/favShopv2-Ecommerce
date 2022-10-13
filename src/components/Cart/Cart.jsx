@@ -13,9 +13,9 @@ const Cart = () => {
 
   const ordenDeCompra = {
     comprador: {
-      nombre: "Juli",
-      email: "julichurio282@gmail.com",
-      telefono: "2234976683",
+      nombre: "nombre",
+      email: "email",
+      numero: "numero",
     },
     items: cart.map((product) => ({
       id: product.id,
@@ -60,7 +60,7 @@ const Cart = () => {
       </table>
 
       <div className="total-price">
-        <Popup />
+        <Popup funcion={mandarCompra} />
         <table>
           <tbody>
             <tr>

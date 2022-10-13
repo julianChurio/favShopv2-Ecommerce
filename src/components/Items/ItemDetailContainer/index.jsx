@@ -17,5 +17,3 @@ const ItemDetailContainer = () => {
 };
 
 export default ItemDetailContainer;
-
-// getData.then((res) => setData(res.find((juego) => juego.id === parseInt(detalleId))));
