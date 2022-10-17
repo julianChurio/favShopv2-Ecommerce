@@ -4,42 +4,54 @@ import CartItem from "./CartItem";
 import { addDoc, getFirestore } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { useState } from "react";
-import Popup from "../Modal";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 const Cart = () => {
   const { cart, precioTotal, precioImpuesto } = useCartContext();
 
-  const [orden, setOrden] = useState();
+  const [show, setShow] = useState(false);
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [number, setNumber] = useState();
-  const [ordenDeCompra, setOrdenDeCompra] = useState({});
 
-  const getValuesFromModal = (nameInput, emailInput, numberInput) => {
-    setName(nameInput);
-    setEmail(emailInput);
-    setNumber(numberInput);
-    generarOrden();
-    mandarCompra();
+  const ponerNombre = (event) => {
+    setName(event.target.value);
+    console.log(event.target.value);
+  };
+  const ponerMail = (event) => {
+    setEmail(event.target.value);
+    console.log(event.target.value);
+  };
+  const ponerNumero = (event) => {
+    setNumber(event.target.value);
+    console.log(event.target.value);
   };
 
-  const generarOrden = () => {
-    setOrdenDeCompra({
-      comprador: {
-        nombre: name,
-        email: email,
-        numero: number,
-      },
-      items: cart.map((product) => ({
-        id: product.id,
-        title: product.nombre,
-        cantidad: product.cantidad,
-        precioPorUnidad: product.precio,
-        subTotal: product.cantidad * product.precio,
-      })),
-      total: { precioTotal },
-    });
+  const handleClose = () => {
+    mandarCompra();
+    setShow(false);
+  };
+
+  const handleShow = () => setShow(true);
+
+  const [orden, setOrden] = useState();
+
+  const ordenDeCompra = {
+    comprador: {
+      nombre: name,
+      email: email,
+      numero: number,
+    },
+    items: cart.map((product) => ({
+      id: product.id,
+      title: product.nombre,
+      cantidad: product.cantidad,
+      precioPorUnidad: product.precio,
+      subTotal: product.cantidad * product.precio,
+    })),
+    total: { precioTotal },
   };
 
   const mandarCompra = () => {
@@ -75,7 +87,29 @@ const Cart = () => {
       </table>
 
       <div className="total-price">
-        <Popup getValuesFromModal={getValuesFromModal} />
+        <Button onClick={handleShow}>Terminar compra</Button>
+
+        <Modal centered show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Ingresar datos</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form className="modal-body">
+              <input type="text" placeholder="Name" onChange={ponerNombre} />
+              <input type="email" placeholder="Email" onChange={ponerMail} />
+              <input type="number" placeholder="Number" onChange={ponerNumero} />
+            </form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cerrar
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Realizar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <div>ACA IRIA EL ORDEN: {orden}</div>
         <table>
           <tbody>
             <tr>
