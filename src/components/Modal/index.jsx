@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function Popup({ funcion, getValuesFromModal }) {
+function Popup({ getValuesFromModal }) {
   const [show, setShow] = useState(false);
 
   const [name, setName] = useState();
@@ -11,7 +11,6 @@ function Popup({ funcion, getValuesFromModal }) {
 
   const handleClose = () => {
     getValuesFromModal(name, email, number);
-    funcion();
     setShow(false);
   };
 

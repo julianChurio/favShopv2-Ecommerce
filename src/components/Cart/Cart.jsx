@@ -14,27 +14,32 @@ const Cart = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [number, setNumber] = useState();
+  const [ordenDeCompra, setOrdenDeCompra] = useState({});
 
   const getValuesFromModal = (nameInput, emailInput, numberInput) => {
     setName(nameInput);
     setEmail(emailInput);
     setNumber(numberInput);
+    generarOrden();
+    mandarCompra();
   };
 
-  const ordenDeCompra = {
-    comprador: {
-      nombre: name,
-      email: email,
-      numero: number,
-    },
-    items: cart.map((product) => ({
-      id: product.id,
-      title: product.nombre,
-      cantidad: product.cantidad,
-      precioPorUnidad: product.precio,
-      subTotal: product.cantidad * product.precio,
-    })),
-    total: { precioTotal },
+  const generarOrden = () => {
+    setOrdenDeCompra({
+      comprador: {
+        nombre: name,
+        email: email,
+        numero: number,
+      },
+      items: cart.map((product) => ({
+        id: product.id,
+        title: product.nombre,
+        cantidad: product.cantidad,
+        precioPorUnidad: product.precio,
+        subTotal: product.cantidad * product.precio,
+      })),
+      total: { precioTotal },
+    });
   };
 
   const mandarCompra = () => {
@@ -70,7 +75,7 @@ const Cart = () => {
       </table>
 
       <div className="total-price">
-        <Popup getValuesFromModal={getValuesFromModal} funcion={mandarCompra} />
+        <Popup getValuesFromModal={getValuesFromModal} />
         <table>
           <tbody>
             <tr>
