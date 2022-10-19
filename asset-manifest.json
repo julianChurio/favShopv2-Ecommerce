@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/favShopv2-Ecommerce/static/css/main.5cb9119d.css",
+    "main.js": "/favShopv2-Ecommerce/static/js/main.295c72dc.js",
+    "static/media/estusflask.png": "/favShopv2-Ecommerce/static/media/estusflask.caf432416e9c75171317.png",
+    "index.html": "/favShopv2-Ecommerce/index.html",
+    "main.5cb9119d.css.map": "/favShopv2-Ecommerce/static/css/main.5cb9119d.css.map",
+    "main.295c72dc.js.map": "/favShopv2-Ecommerce/static/js/main.295c72dc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cb9119d.css",
+    "static/js/main.295c72dc.js"
+  ]
+}
