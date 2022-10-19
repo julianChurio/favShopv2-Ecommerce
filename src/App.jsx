@@ -10,6 +10,8 @@ import Favoritos from "./Pages/Favoritos";
 import CartProvider from "./CartProvider";
 import Home from "./Pages/Home";
 import ErrorPage from "./Pages/ErrorPage";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -28,6 +30,15 @@ function App() {
           </Routes>
         </CartProvider>
       </BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={true}
+        closeOnClick
+        rtl={false}
+        pauseOnHover={true}
+        theme="light"
+      />
     </div>
   );
 }

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useCartContext } from "./../../../CartProvider";
 import "./index.css";
+import { toast } from "react-toastify";
 
 const ItemCount = ({ initial, stock, onAdd, id }) => {
   const [count, setCount] = useState(parseInt(initial));
+
+  const notify = () => toast("Ya estás llevando la cantidad máxima");
 
   const { buscarEnCarrito } = useCartContext();
 
@@ -12,7 +15,7 @@ const ItemCount = ({ initial, stock, onAdd, id }) => {
 
     buscarEnCarrito(id) !== undefined ? (cantidadEnCarrito = buscarEnCarrito(id).cantidad) : (cantidadEnCarrito = 0);
 
-    count >= 0 && count < stock && count + cantidadEnCarrito < stock ? setCount(count + 1) : console.log("asd");
+    count >= 0 && count < stock && count + cantidadEnCarrito < stock ? setCount(count + 1) : notify();
   };
 
   const restar = () => {

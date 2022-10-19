@@ -114,7 +114,7 @@ const Cart = () => {
           <tbody>
             <tr>
               <td>Subtotal</td>
-              <td>AR${precioTotal}</td>
+              <td>AR${[(Math.round(precioTotal * 100) / 100).toFixed(2)]}</td>
             </tr>
             <tr>
               <td>Impuestos</td>
