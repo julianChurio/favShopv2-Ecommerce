@@ -21,6 +21,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/favShopv2-Ecommerce" element={<Home />} />
             <Route path="/catalogo/" element={<ItemListContainer />} />
             <Route path="/cart/" element={<Cart />} />
             <Route path="/categoria/productos/:itemId" />
