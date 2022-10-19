@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount";
 import { useCartContext } from "../../../CartProvider";
+import "./index.css"
 
 const ItemDetail = ({ data }) => {
   const { agregarProducto } = useCartContext();
@@ -24,10 +25,10 @@ const ItemDetail = ({ data }) => {
         {terminarCompra ? (
           <div>
             <Link to="/cart/">
-              <button>Terminar compra</button>
+              <button className="boton-solo">Terminar compra</button>
             </Link>
             <Link to="/catalogo/">
-              <button>Seguir comprando</button>
+              <button className="boton-solo">Seguir comprando</button>
             </Link>
           </div>
         ) : (

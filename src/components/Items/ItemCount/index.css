@@ -1,0 +1,35 @@
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.buttons > span {
+  align-self: center;
+}
+
+.buttons > button {
+  margin: 0;
+  align-self: center;
+  border: none;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.buttons > button:first-child {
+  background-color: hsla(0, 100%, 50%, 1) !important;
+}
+.buttons > button:first-child:disabled {
+  background-color: hsla(0, 100%, 50%, 0.5) !important;
+}
+
+.buttons > button:last-child {
+  background-color: hsla(85, 67%, 39%, 1) !important;
+}
+.buttons > button:last-child:disabled {
+  background-color: hsla(85, 67%, 39%, 0.5) !important;
+}

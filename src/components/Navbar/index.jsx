@@ -1,6 +1,7 @@
 import Flask from "../../assets/images/estusflask.png";
 import CartWidget from "../Cart/CartWidget";
 import { NavLink } from "react-router-dom";
+import "./index.css"
 
 function NavBar() {
   return (

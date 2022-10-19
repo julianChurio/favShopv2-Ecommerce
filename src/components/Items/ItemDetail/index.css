@@ -1,0 +1,12 @@
+.detail {
+  display: flex;
+  gap: 1rem;
+}
+
+.details {
+  width: 50%;
+}
+
+.detailPhoto {
+  width: 50%;
+}

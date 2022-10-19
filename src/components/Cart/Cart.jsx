@@ -18,15 +18,12 @@ const Cart = () => {
 
   const ponerNombre = (event) => {
     setName(event.target.value);
-    console.log(event.target.value);
   };
   const ponerMail = (event) => {
     setEmail(event.target.value);
-    console.log(event.target.value);
   };
   const ponerNumero = (event) => {
     setNumber(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleClose = () => {
@@ -34,7 +31,11 @@ const Cart = () => {
     setShow(false);
   };
 
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setOrden(undefined);
+    setShow(true);
+  };
+  const closeNormal = () => setShow(false);
 
   const [orden, setOrden] = useState();
 
@@ -65,7 +66,7 @@ const Cart = () => {
       <div className="cartContainer cart-page">
         <h1>No hay elementos en el carrito</h1>
         <Link to="/catalogo/">
-          <button>Hacer compras</button>
+          <button className="boton-solo">Hacer compras</button>
         </Link>
       </div>
     );
@@ -89,19 +90,19 @@ const Cart = () => {
       <div className="total-price">
         <Button onClick={handleShow}>Terminar compra</Button>
 
-        <Modal centered show={show} onHide={handleClose}>
+        <Modal centered show={show} onHide={closeNormal} backdrop="static">
           <Modal.Header closeButton>
             <Modal.Title>Ingresar datos</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <form className="modal-body">
-              <input type="text" placeholder="Name" onChange={ponerNombre} />
-              <input type="email" placeholder="Email" onChange={ponerMail} />
-              <input type="number" placeholder="Number" onChange={ponerNumero} />
+              <input type="text" placeholder="Name" onChange={ponerNombre} autoFocus />
+              <input type="email" placeholder="Email" onChange={ponerMail} autoFocus />
+              <input type="number" placeholder="Number" onChange={ponerNumero} autoFocus />
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={closeNormal}>
               Cerrar
             </Button>
             <Button variant="primary" onClick={handleClose}>
@@ -109,7 +110,6 @@ const Cart = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-        <div>ACA IRIA EL ORDEN: {orden}</div>
         <table>
           <tbody>
             <tr>
@@ -127,6 +127,17 @@ const Cart = () => {
           </tbody>
         </table>
       </div>
+      {orden && (
+        <div>
+          <p>Muchas gracias {name} por su compra!</p>
+          <p>Pronto llamaremos a {number} para confirmar</p>
+          <p>Se enviarán los juegos a {email}</p>
+          <p>
+            Cualquier consulta, utilice su numero de orden <span className="orden"> {orden}</span> para identificar su
+            compra
+          </p>
+        </div>
+      )}
     </div>
   );
 };

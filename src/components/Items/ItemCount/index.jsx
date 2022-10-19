@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCartContext } from "./../../../CartProvider";
+import "./index.css";
 
 const ItemCount = ({ initial, stock, onAdd, id }) => {
   const [count, setCount] = useState(parseInt(initial));
@@ -23,7 +24,7 @@ const ItemCount = ({ initial, stock, onAdd, id }) => {
   }, [initial]);
 
   return (
-    <div className="itemCount">
+    <div>
       <div className="buttons">
         <button disabled={count === 0} onClick={restar}>
           -
@@ -34,7 +35,7 @@ const ItemCount = ({ initial, stock, onAdd, id }) => {
         </button>
       </div>
       <div>
-        <button disabled={stock <= 0} onClick={() => onAdd(count)}>
+        <button disabled={stock <= 0} onClick={() => onAdd(count)} className="boton-solo">
           Agregar al carrito
         </button>
       </div>

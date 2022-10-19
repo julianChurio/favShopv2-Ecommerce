@@ -1,0 +1,6 @@
+
+
+.juegos {
+    display: flex;
+    flex-flow: wrap;
+  }

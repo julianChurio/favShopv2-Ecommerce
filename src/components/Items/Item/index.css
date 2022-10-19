@@ -1,0 +1,44 @@
+.itemsJuegos {
+    min-width: 25%;
+    border: 1px solid black;
+    display: grid;
+  }
+  
+  .itemsJuegos h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .itemsJuegos > h3 {
+    text-align: center;
+  }
+  
+  .itemsJuegos > img {
+    margin: 0 auto;
+  }
+  
+  .itemsJuegos > h4 {
+    text-align: center;
+  }
+  
+  .itemsJuegos > button {
+    width: 25%;
+    border: none;
+    padding: 0.25rem;
+    justify-self: center;
+    background-image: linear-gradient(135deg, orange 50%, #24252a 50%);
+    background-size: 250%;
+    background-position: 100% 100%;
+    transition: background 0.4s;
+  }
+  
+  .itemsJuegos > button:hover {
+    background-position: 0% 0%;
+  }
+  
+  .itemsJuegos > button > a {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    color: white;
+  }

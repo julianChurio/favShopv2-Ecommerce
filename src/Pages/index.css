@@ -1,0 +1,29 @@
+.home {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.home > h1 {
+  font-size: 4rem;
+}
+
+.home > h1 {
+  background: linear-gradient(to right, white, orange);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+div.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  flex-direction: column;
+}
+
+div.error h1 {
+  font-size: 3rem;
+}
