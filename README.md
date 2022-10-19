@@ -1,6 +1,6 @@
 <h1 align="center">favShop Ecommerce</h1>
 
-# [![CSS](https://img.shields.io/badge/Demo-blue)](https://julianchurio.github.io/favShopv2-Ecommerce/)
+# [![CSS](https://img.shields.io/badge/Demo-blue)](https://julianchurio.github.io/favShopv2-Ecommerce/)style=for-the-badge
 
 ### Descripcion
 
