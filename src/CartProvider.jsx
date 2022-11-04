@@ -1,10 +1,13 @@
 import React, { useState, useContext } from "react";
 const CartContext = React.createContext([]);
 
-export const useCartContext = () => useContext(CartContext);
+// funciones para el carrito
 
-const CartProvider = ({ children, id }) => {
-  const [cart, setCart] = useState([]);
+export const useCartContext = () => useContext(CartContext);
+// exporto el cart conext asi es mas facil de usar en los componentes
+
+const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]); // carrito
 
   const agregarProducto = (item, nuevaCantidad) => {
     const { cantidad = 0 } = cart.find((prod) => prod.id === item.id) || {};
@@ -12,27 +15,19 @@ const CartProvider = ({ children, id }) => {
     setCart([...newCart, { ...item, cantidad: cantidad + nuevaCantidad }]);
   };
 
-  /* 
-  
-      if (buscarEnCarrito(item.id)) {
-			const itemInCart = cart.find((it) => it.id === item.id);
-			itemInCart.nuevaCantidad = itemInCart.nuevaCantidad + nuevaCantidad;
-			setCart([...cart]);
-		} else {
-			item.nuevaCantidad = nuevaCantidad;
-			setCart([...cart, item]);
-		}
-  
-  */
-
   const precioTotal = cart.reduce((a, b) => a + b.cantidad * b.precio, 0);
 
   const precioImpuesto = precioTotal * 0.75;
-  const totalProductos = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
+  const totalProductos = () =>
+    cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
 
-  const totalNumero = cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
+  const totalNumero = cart.reduce(
+    (acumulador, productoActual) => acumulador + productoActual.cantidad,
+    0
+  );
 
-  const cantidadEnCarrito = () => cart.reduce((cantidadTotal, prod) => cantidadTotal + prod.cantidad, 0);
+  const cantidadEnCarrito = () =>
+    cart.reduce((cantidadTotal, prod) => cantidadTotal + prod.cantidad, 0);
 
   const limpiarCarrito = () => setCart([]);
 

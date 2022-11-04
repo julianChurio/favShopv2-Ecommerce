@@ -127,14 +127,14 @@ const Cart = () => {
           </tbody>
         </table>
       </div>
-      {orden && (
+      {orden && ( // si orden existe, crear este div
         <div>
           <p>Muchas gracias {name} por su compra!</p>
           <p>Pronto llamaremos a {number} para confirmar</p>
           <p>Se enviarán los juegos a {email}</p>
           <p>
-            Cualquier consulta, utilice su numero de orden <span className="orden"> {orden}</span> para identificar su
-            compra
+            Cualquier consulta, utilice su numero de orden <span className="orden"> {orden}</span>{" "}
+            para identificar su compra
           </p>
         </div>
       )}

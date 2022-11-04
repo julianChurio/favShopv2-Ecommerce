@@ -25,7 +25,10 @@ function App() {
             <Route path="/catalogo/" element={<ItemListContainer />} />
             <Route path="/cart/" element={<Cart />} />
             <Route path="/categoria/productos/:itemId" />
-            <Route path="/categoria/productos/detalles/:detalleId" element={<ItemDetailContainer />} />
+            <Route
+              path="/categoria/productos/detalles/:detalleId"
+              element={<ItemDetailContainer />}
+            />
             <Route path="/categoria/:favorito" element={<Favoritos />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>

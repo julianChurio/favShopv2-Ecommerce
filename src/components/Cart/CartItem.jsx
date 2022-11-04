@@ -25,15 +25,3 @@ const CartItem = ({ product }) => {
 };
 
 export default CartItem;
-
-/* 
-<button onClick={() => removerProducto(product.id)}>Eliminar</button>
-      <img src={product.photo} alt="" />
-      <h1>{product.nombre}</h1>
-      <p>{product.cantidad}</p>
-      <p>{product.precio}</p>
-      <p>${product.cantidad * product.precio}</p>
-      <button onClick={() => removerProducto(product.id)}>Eliminar</button>
-
-
-*/
